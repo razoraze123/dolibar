@@ -16,9 +16,9 @@
  */
 
 /**
- * \file    test/lib/test.lib.php
- * \ingroup test
- * \brief   Library files with common functions for Test
+ * \file    ecommerce/lib/ecommerce.lib.php
+ * \ingroup ecommerce
+ * \brief   Library files with common functions for Ecommerce
  */
 
 /**
@@ -26,7 +26,7 @@
  *
  * @return array<array{string,string,string}>
  */
-function testAdminPrepareHead()
+function ecommerceAdminPrepareHead()
 {
 	global $langs, $conf;
 
@@ -34,18 +34,18 @@ function testAdminPrepareHead()
 	// $extrafields = new ExtraFields($db);
 	// $extrafields->fetch_name_optionals_label('myobject');
 
-	$langs->load("test@test");
+	$langs->load("ecommerce@ecommerce");
 
 	$h = 0;
 	$head = array();
 
-	$head[$h][0] = dol_buildpath("/test/admin/setup.php", 1);
+	$head[$h][0] = dol_buildpath("/ecommerce/admin/setup.php", 1);
 	$head[$h][1] = $langs->trans("Settings");
 	$head[$h][2] = 'settings';
 	$h++;
 
 	/*
-	$head[$h][0] = dol_buildpath("/test/admin/myobject_extrafields.php", 1);
+	$head[$h][0] = dol_buildpath("/ecommerce/admin/myobject_extrafields.php", 1);
 	$head[$h][1] = $langs->trans("ExtraFields");
 	$nbExtrafields = is_countable($extrafields->attributes['myobject']['label']) ? count($extrafields->attributes['myobject']['label']) : 0;
 	if ($nbExtrafields > 0) {
@@ -55,7 +55,7 @@ function testAdminPrepareHead()
 	$h++;
 	*/
 
-	$head[$h][0] = dol_buildpath("/test/admin/about.php", 1);
+	$head[$h][0] = dol_buildpath("/ecommerce/admin/about.php", 1);
 	$head[$h][1] = $langs->trans("About");
 	$head[$h][2] = 'about';
 	$h++;
@@ -63,14 +63,14 @@ function testAdminPrepareHead()
 	// Show more tabs from modules
 	// Entries must be declared in modules descriptor with line
 	//$this->tabs = array(
-	//	'entity:+tabname:Title:@test:/test/mypage.php?id=__ID__'
+	//	'entity:+tabname:Title:@ecommerce:/ecommerce/mypage.php?id=__ID__'
 	//); // to add new tab
 	//$this->tabs = array(
-	//	'entity:-tabname:Title:@test:/test/mypage.php?id=__ID__'
+	//	'entity:-tabname:Title:@ecommerce:/ecommerce/mypage.php?id=__ID__'
 	//); // to remove a tab
-	complete_head_from_modules($conf, $langs, null, $head, $h, 'test@test');
+	complete_head_from_modules($conf, $langs, null, $head, $h, 'ecommerce@ecommerce');
 
-	complete_head_from_modules($conf, $langs, null, $head, $h, 'test@test', 'remove');
+	complete_head_from_modules($conf, $langs, null, $head, $h, 'ecommerce@ecommerce', 'remove');
 
 	return $head;
 }

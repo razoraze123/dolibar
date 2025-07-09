@@ -21,9 +21,9 @@
  */
 
 /**
- *	\file       test/testindex.php
- *	\ingroup    test
- *	\brief      Home page of test top menu
+ *	\file       ecommerce/ecommerceindex.php
+ *	\ingroup    ecommerce
+ *	\brief      Home page of ecommerce top menu
  */
 
 // Load Dolibarr environment
@@ -72,7 +72,7 @@ require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
  */
 
 // Load translation files required by the page
-$langs->loadLangs(array("test@test"));
+$langs->loadLangs(array("ecommerce@ecommerce"));
 
 $action = GETPOST('action', 'aZ09');
 
@@ -92,13 +92,13 @@ if (!empty($user->socid) && $user->socid > 0) {
 // Security check (enable the most restrictive one)
 //if ($user->socid > 0) accessforbidden();
 //if ($user->socid > 0) $socid = $user->socid;
-//if (!isModEnabled('test')) {
+//if (!isModEnabled('ecommerce')) {
 //	accessforbidden('Module not enabled');
 //}
-//if (! $user->hasRight('test', 'myobject', 'read')) {
+//if (! $user->hasRight('ecommerce', 'myobject', 'read')) {
 //	accessforbidden();
 //}
-//restrictedArea($user, 'test', 0, 'test_myobject', 'myobject', '', 'rowid');
+//restrictedArea($user, 'ecommerce', 0, 'test_myobject', 'myobject', '', 'rowid');
 //if (empty($user->admin)) {
 //	accessforbidden('Must be admin');
 //}
@@ -118,9 +118,9 @@ if (!empty($user->socid) && $user->socid > 0) {
 $form = new Form($db);
 $formfile = new FormFile($db);
 
-llxHeader("", $langs->trans("TestArea"), '', '', 0, 0, '', '', '', 'mod-test page-index');
+llxHeader("", $langs->trans("EcommerceArea"), '', '', 0, 0, '', '', '', 'mod-ecommerce page-index');
 
-print load_fiche_titre($langs->trans("TestArea"), '', 'test.png@test');
+print load_fiche_titre($langs->trans("EcommerceArea"), '', 'ecommerce.png@ecommerce');
 
 print '<div class="fichecenter">';
 print '<div style="text-align:center; margin-bottom: 20px;">';
@@ -133,7 +133,7 @@ print '<div class="fichethirdleft">';
 
 /* BEGIN MODULEBUILDER DRAFT MYOBJECT
 // Draft MyObject
-if (isModEnabled('test') && $user->hasRight('test', 'read')) {
+if (isModEnabled('ecommerce') && $user->hasRight('ecommerce', 'read')) {
 	$langs->load("orders");
 
 	$sql = "SELECT c.rowid, c.ref, c.ref_client, c.total_ht, c.tva as total_tva, c.total_ttc, s.rowid as socid, s.nom as name, s.client, s.canvas";
@@ -208,7 +208,7 @@ print '</div><div class="fichetwothirdright">';
 
 /* BEGIN MODULEBUILDER LASTMODIFIED MYOBJECT
 // Last modified myobject
-if (isModEnabled('test') && $user->hasRight('test', 'read')) {
+if (isModEnabled('ecommerce') && $user->hasRight('ecommerce', 'read')) {
 	$sql = "SELECT s.rowid, s.ref, s.label, s.date_creation, s.tms";
 	$sql.= " FROM ".MAIN_DB_PREFIX."test_myobject as s";
 	$sql.= " WHERE s.entity IN (".getEntity($myobjectstatic->element).")";
