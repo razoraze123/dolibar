@@ -60,18 +60,15 @@ Note: If this screen tells you that there is no "custom" directory, check that y
         $dolibarr_main_document_root_alt = 'C:/My Web Sites/Dolibarr/htdocs/custom';
         ```
 
-<!--
-
 ### From a GIT repository
 
-Clone the repository in `$dolibarr_main_document_root_alt/ecommerce`
+Clone the repository in `$dolibarr_main_document_root_alt/ecommerce`. The folder name **must** remain `ecommerce`; renaming it will break the module links.
 
 ```shell
 cd ....../custom
 git clone git@github.com:gitlogin/ecommerce.git ecommerce
 ```
 
--->
 
 ### Final steps
 
