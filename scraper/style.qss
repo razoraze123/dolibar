@@ -1,0 +1,42 @@
+/* Modern dark theme */
+QMainWindow {
+    background-color: #2c2c2c;
+    color: #dddddd;
+    font-family: "Segoe UI", "Inter", "Roboto", sans-serif;
+    font-size: 11pt;
+}
+
+QToolBar {
+    background-color: #1e1e1e;
+    padding: 8px;
+    spacing: 12px;
+}
+
+QToolButton {
+    background: transparent;
+    border: none;
+    color: #dddddd;
+    padding: 8px 14px;
+    font-size: 10pt;
+}
+QToolButton:checked, QToolButton:hover {
+    background-color: #3c3f41;
+    color: #6fa8dc;
+}
+
+QLineEdit, QPlainTextEdit, QTextEdit {
+    background-color: #3c3c3c;
+    color: #dddddd;
+    border: 1px solid #444444;
+    padding: 6px;
+    font-size: 10pt;
+}
+
+QProgressBar {
+    height: 16px;
+    border: 1px solid #444444;
+    background-color: #3c3c3c;
+}
+QProgressBar::chunk {
+    background-color: #6fa8dc;
+}

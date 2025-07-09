@@ -1,0 +1,9 @@
+{
+  "nom": "Shopify Default",
+  "selectors": {
+    "images": ".product-gallery__media-list img",
+    "description": ".rte",
+    "collection": "div.product-card__info h3.product-card__title a",
+    "price": ".price"
+  }
+}

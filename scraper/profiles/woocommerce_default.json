@@ -1,0 +1,9 @@
+{
+  "nom": "WooCommerce Default",
+  "selectors": {
+    "images": ".woocommerce-product-gallery__image img",
+    "description": ".woocommerce-Tabs-panel--description",
+    "collection": "li.product a.woocommerce-LoopProduct-link",
+    "price": ".summary .price"
+  }
+}

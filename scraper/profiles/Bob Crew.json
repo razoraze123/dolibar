@@ -1,0 +1,11 @@
+{
+  "nom": "Bob Crew",
+  "selectors": {
+    "images": "div.product-gallery__media img",
+    "description": "",
+    "collection": "div.accordion__content > div.prose"
+  },
+  "sentences_file": "",
+  "urls_file": "C:/Users/Lamine/Desktop/scrap/Scrap/liens.txt",
+  "desc_urls_file": ""
+}

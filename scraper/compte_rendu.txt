@@ -1,0 +1,33 @@
+Audit de scraper_images.py
+==========================
+
+État après correctifs appliqués
+-------------------------------
+
+1. Bloc `try/finally` assurant l'appel à `driver.quit()`.
+2. Validation explicite des URL en `http` ou `https`.
+3. Téléchargement robuste avec en-tête `User-Agent`, gestion des erreurs réseau et écriture progressive des fichiers.
+4. Décodage base64 sécurisé avec gestion des exceptions `binascii.Error`.
+5. Utilisation de `WebDriverWait` à la place de `time.sleep`.
+6. Journalisation configurable via le module `logging`.
+
+Ces améliorations renforcent la fiabilité et la sécurité lors du scraping d'images.
+
+Audit de scrap_description_produit.py
+====================================
+
+Le module extrait la description HTML d'une page produit.
+
+1. WebDriver headless configuré avec masquage de l'automatisation.
+2. Utilisation de `WebDriverWait` pour attendre la présence de l'élément ciblé.
+3. Validation de l'URL en `http` ou `https`.
+4. Sauvegarde UTF-8 de la description dans un fichier fourni.
+
+Audit de interface_py.py
+=======================
+
+L'affichage de la progression restait à 0 lors de l'utilisation d'un fichier
+d'URLs. Le calcul de la barre de progression a été revu pour prendre en compte
+plusieurs produits et l'événement `progress` est à présent émis quelle que soit la
+quantité d'URLs.
+

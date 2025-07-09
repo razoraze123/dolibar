@@ -1,0 +1,11 @@
+{
+  "nom": "sablier",
+  "selectors": {
+    "images": ".product-main-slide img",
+    "description": "",
+    "collection": ""
+  },
+  "sentences_file": "",
+  "urls_file": "C:/Users/Lamine/Desktop/scrap/Scrap/lients1.txt",
+  "desc_urls_file": ""
+}
