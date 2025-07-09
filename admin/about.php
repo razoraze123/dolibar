@@ -108,8 +108,8 @@ print load_fiche_titre($langs->trans($title), $linkback, 'title_setup');
 $head = ecommerceAdminPrepareHead();
 print dol_get_fiche_head($head, 'about', $langs->trans($title), 0, 'ecommerce@ecommerce');
 
-dol_include_once('/ecommerce/core/modules/modScrapBoost.class.php');
-$tmpmodule = new modScrapBoost($db);
+dol_include_once('/ecommerce/core/modules/modEcommerce.class.php');
+$tmpmodule = new modEcommerce($db);
 print $tmpmodule->getDescLong();
 
 // Page end
