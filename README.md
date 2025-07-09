@@ -3,6 +3,7 @@
 ## Features
 
 Description of the module...
+- Python image scraper to download product images from WooCommerce or Shopify pages
 
 <!--
 ![Screenshot ecommerce](img/screenshot_ecommerce.png?raw=true "Ecommerce"){imgmd}

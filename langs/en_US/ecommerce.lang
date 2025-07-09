@@ -41,3 +41,7 @@ Welcome = Welcome
 #
 MyWidget = My widget
 MyWidgetDescription = My widget description
+ImageScraper = Image scraper
+Url = URL
+CssSelector = CSS selector
+Scrape = Scrape

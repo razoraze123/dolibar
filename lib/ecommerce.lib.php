@@ -74,3 +74,24 @@ function ecommerceAdminPrepareHead()
 
 	return $head;
 }
+
+/**
+ * Run the Python image scraper on the given URL.
+ *
+ * @param string $url Product page URL
+ * @param string|null $selector Optional CSS selector
+ * @return array{output:string,code:int}
+ */
+function ecommerceRunScraper(string $url, string $selector = null)
+{
+        $script = dol_buildpath('/ecommerce/scraper/scraper_images.py', 1);
+        $cmd = 'python3 '.escapeshellarg($script).' '.escapeshellarg($url);
+        if (!empty($selector)) {
+                $cmd .= ' --selector '.escapeshellarg($selector);
+        }
+        $output = array();
+        $ret = 0;
+        @exec($cmd, $output, $ret);
+        return array('output' => implode("\n", $output), 'code' => $ret);
+}
+

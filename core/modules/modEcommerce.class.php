@@ -318,22 +318,38 @@ class modEcommerce extends DolibarrModules
 		$r = 0;
 		// Add here entries to declare new menus
 		/* BEGIN MODULEBUILDER TOPMENU */
-		$this->menu[$r++] = array(
-			'fk_menu' => '', // Will be stored into mainmenu + leftmenu. Use '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
-			'type' => 'top', // This is a Top menu entry
-			'titre' => 'ModuleEcommerceName',
-			'prefix' => img_picto('', $this->picto, 'class="pictofixedwidth valignmiddle"'),
-			'mainmenu' => 'ecommerce',
-			'leftmenu' => '',
-			'url' => '/custom/ecommerce/ecommerceindex.php',
-			'langs' => 'ecommerce@ecommerce', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
-			'position' => 1000 + $r,
+                $this->menu[$r++] = array(
+                        'fk_menu' => '', // Will be stored into mainmenu + leftmenu. Use '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
+                        'type' => 'top', // This is a Top menu entry
+                        'titre' => 'ModuleEcommerceName',
+                        'prefix' => img_picto('', $this->picto, 'class="pictofixedwidth valignmiddle"'),
+                        'mainmenu' => 'ecommerce',
+                        'leftmenu' => '',
+                        'url' => '/custom/ecommerce/ecommerceindex.php',
+                        'langs' => 'ecommerce@ecommerce', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+                        'position' => 1000 + $r,
                         'enabled' => "isModEnabled('ecommerce')", // Define condition to show or hide menu entry. Use 'isModEnabled('ecommerce')' if entry must be visible if module is enabled.
-			'perms' => '1', // Use 'perms'=>'$user->hasRight("ecommerce", "myobject", "read")' if you want your menu with a permission rules
-			'target' => '',
-			'user' => 2, // 0=Menu for internal users, 1=external users, 2=both
-		);
-		/* END MODULEBUILDER TOPMENU */
+                        'perms' => '1', // Use 'perms'=>'$user->hasRight("ecommerce", "myobject", "read")' if you want your menu with a permission rules
+                        'target' => '',
+                        'user' => 2, // 0=Menu for internal users, 1=external users, 2=both
+                );
+
+                // Link to the image scraper page
+                $this->menu[$r++] = array(
+                        'fk_menu' => 'fk_mainmenu=ecommerce',
+                        'type' => 'left',
+                        'titre' => 'ImageScraper',
+                        'mainmenu' => 'ecommerce',
+                        'leftmenu' => 'imagescraper',
+                        'url' => '/custom/ecommerce/scraper.php',
+                        'langs' => 'ecommerce@ecommerce',
+                        'position' => 1000 + $r,
+                        'enabled' => "isModEnabled('ecommerce')",
+                        'perms' => '1',
+                        'target' => '',
+                        'user' => 2,
+                );
+                /* END MODULEBUILDER TOPMENU */
 
 		/* BEGIN MODULEBUILDER LEFTMENU MYOBJECT */
 		/*
