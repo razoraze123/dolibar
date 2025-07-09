@@ -124,7 +124,7 @@ print load_fiche_titre($langs->trans("EcommerceArea"), '', 'ecommerce.png@ecomme
 
 print '<div class="fichecenter">';
 print '<div style="text-align:center; margin-bottom: 20px;">';
-print '<h2 style="color:#0071c1;">Bienvenue, Lamine 👋</h2>';
+print '<h2 style="color:#0071c1;">'.$langs->trans('Welcome').' '.dol_escape_htmltag($user->firstname).' 👋</h2>';
 print '</div>';
 
 print '<div class="fichethirdleft">';
