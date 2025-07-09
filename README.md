@@ -34,7 +34,6 @@ You can also get a ready-to-use instance in the cloud from https://saas.dolibarr
 If the module is a ready-to-deploy zip file, so with a name `module_xxx-version.zip` (e.g., when downloading it from a marketplace like [Dolistore](https://www.dolistore.com)),
 go to menu `Home> Setup> Modules> Deploy external module` and upload the zip file.
 
-<!--
 
 Note: If this screen tells you that there is no "custom" directory, check that your setup is correct:
 
@@ -60,7 +59,6 @@ Note: If this screen tells you that there is no "custom" directory, check that y
         $dolibarr_main_url_root_alt = '/custom';
         $dolibarr_main_document_root_alt = 'C:/My Web Sites/Dolibarr/htdocs/custom';
         ```
--->
 
 <!--
 
@@ -82,6 +80,7 @@ Using your browser:
   - Log into Dolibarr as a super-administrator
   - Go to "Setup"> "Modules"
   - You should now be able to find and enable the module
+  - Example final URL: http://localhost/dolibarr/custom/ecommerce/ecommerceindex.php
 
 
 
