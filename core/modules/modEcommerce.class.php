@@ -325,7 +325,7 @@ class modEcommerce extends DolibarrModules
 			'prefix' => img_picto('', $this->picto, 'class="pictofixedwidth valignmiddle"'),
 			'mainmenu' => 'ecommerce',
 			'leftmenu' => '',
-			'url' => '/ecommerce/ecommerceindex.php',
+			'url' => '/custom/ecommerce/ecommerceindex.php',
 			'langs' => 'ecommerce@ecommerce', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position' => 1000 + $r,
                         'enabled' => "isModEnabled('ecommerce')", // Define condition to show or hide menu entry. Use 'isModEnabled('ecommerce')' if entry must be visible if module is enabled.
