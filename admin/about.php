@@ -18,9 +18,9 @@
  */
 
 /**
- * \file    test/admin/about.php
- * \ingroup test
- * \brief   About page of module Test.
+ * \file    ecommerce/admin/about.php
+ * \ingroup ecommerce
+ * \brief   About page of module Ecommerce.
  */
 
 // Load Dolibarr environment
@@ -58,7 +58,7 @@ if (!$res) {
 // Libraries
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
-require_once '../lib/test.lib.php';
+require_once '../lib/ecommerce.lib.php';
 
 /**
  * @var Conf $conf
@@ -69,7 +69,7 @@ require_once '../lib/test.lib.php';
  */
 
 // Translations
-$langs->loadLangs(array("errors", "admin", "test@test"));
+$langs->loadLangs(array("errors", "admin", "ecommerce@ecommerce"));
 
 // Access control
 if (!$user->admin) {
@@ -95,9 +95,9 @@ $backtopage = GETPOST('backtopage', 'alpha');
 $form = new Form($db);
 
 $help_url = '';
-$title = "TestSetup";
+$title = "EcommerceSetup";
 
-llxHeader('', $langs->trans($title), $help_url, '', 0, 0, '', '', '', 'mod-test page-admin_about');
+llxHeader('', $langs->trans($title), $help_url, '', 0, 0, '', '', '', 'mod-ecommerce page-admin_about');
 
 // Subheader
 $linkback = '<a href="'.($backtopage ? $backtopage : DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
@@ -105,11 +105,11 @@ $linkback = '<a href="'.($backtopage ? $backtopage : DOL_URL_ROOT.'/admin/module
 print load_fiche_titre($langs->trans($title), $linkback, 'title_setup');
 
 // Configuration header
-$head = testAdminPrepareHead();
-print dol_get_fiche_head($head, 'about', $langs->trans($title), 0, 'test@test');
+$head = ecommerceAdminPrepareHead();
+print dol_get_fiche_head($head, 'about', $langs->trans($title), 0, 'ecommerce@ecommerce');
 
-dol_include_once('/test/core/modules/modTest.class.php');
-$tmpmodule = new modTest($db);
+dol_include_once('/ecommerce/core/modules/modScrapBoost.class.php');
+$tmpmodule = new modScrapBoost($db);
 print $tmpmodule->getDescLong();
 
 // Page end

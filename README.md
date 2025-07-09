@@ -1,11 +1,11 @@
-# TEST FOR [DOLIBARR ERP & CRM](https://www.dolibarr.org)
+# ECOMMERCE FOR [DOLIBARR ERP & CRM](https://www.dolibarr.org)
 
 ## Features
 
 Description of the module...
 
 <!--
-![Screenshot test](img/screenshot_test.png?raw=true "Test"){imgmd}
+![Screenshot ecommerce](img/screenshot_ecommerce.png?raw=true "Ecommerce"){imgmd}
 -->
 
 Other external modules are available on [Dolistore.com](https://www.dolistore.com).
@@ -66,11 +66,11 @@ Note: If this screen tells you that there is no "custom" directory, check that y
 
 ### From a GIT repository
 
-Clone the repository in `$dolibarr_main_document_root_alt/test`
+Clone the repository in `$dolibarr_main_document_root_alt/ecommerce`
 
 ```shell
 cd ....../custom
-git clone git@github.com:gitlogin/test.git test
+git clone git@github.com:gitlogin/ecommerce.git ecommerce
 ```
 
 -->

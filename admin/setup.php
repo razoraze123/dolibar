@@ -18,9 +18,9 @@
  */
 
 /**
- * \file    test/admin/setup.php
- * \ingroup test
- * \brief   Test setup page.
+ * \file    ecommerce/admin/setup.php
+ * \ingroup ecommerce
+ * \brief   Ecommerce setup page.
  */
 
 // Load Dolibarr environment
@@ -57,7 +57,7 @@ if (!$res) {
 
 // Libraries
 require_once DOL_DOCUMENT_ROOT."/core/lib/admin.lib.php";
-require_once '../lib/test.lib.php';
+require_once '../lib/ecommerce.lib.php';
 //require_once "../class/myclass.class.php";
 
 /**
@@ -69,7 +69,7 @@ require_once '../lib/test.lib.php';
  */
 
 // Translations
-$langs->loadLangs(array("admin", "test@test"));
+$langs->loadLangs(array("admin", "ecommerce@ecommerce"));
 
 // Initialize a technical object to manage hooks of page. Note that conf->hooks_modules contains an array of hook context
 /** @var HookManager $hookmanager */
@@ -111,34 +111,34 @@ if (!$user->admin) {
 // Enter here all parameters in your setup page
 
 // Setup conf for selection of an URL
-$item = $formSetup->newItem('TEST_MYPARAM1');
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM1');
 $item->fieldAttr['placeholder'] = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'];
 $item->cssClass = 'minwidth500';
 
 // Setup conf for selection of a simple string input
-$item = $formSetup->newItem('TEST_MYPARAM2');
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM2');
 $item->defaultFieldValue = 'default value';
 $item->fieldAttr['placeholder'] = 'A placeholder here';
 
 // Setup conf for selection of a simple textarea input but we replace the text of field title
-$item = $formSetup->newItem('TEST_MYPARAM3');
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM3');
 $item->nameText = $item->getNameText().' more html text ';
 
 // Setup conf for a selection of a Thirdparty
-$item = $formSetup->newItem('TEST_MYPARAM4');
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM4');
 $item->setAsThirdpartyType();
 
 // Setup conf for a selection of a boolean
-$formSetup->newItem('TEST_MYPARAM5')->setAsYesNo();
+$formSetup->newItem('ECOMMERCE_MYPARAM5')->setAsYesNo();
 
 // Setup conf for a selection of an Email template of type thirdparty
-$formSetup->newItem('TEST_MYPARAM6')->setAsEmailTemplate('thirdparty');
+$formSetup->newItem('ECOMMERCE_MYPARAM6')->setAsEmailTemplate('thirdparty');
 
 // Setup conf for a selection of a secured key
-//$formSetup->newItem('TEST_MYPARAM7')->setAsSecureKey();
+//$formSetup->newItem('ECOMMERCE_MYPARAM7')->setAsSecureKey();
 
 // Setup conf for a selection of a Product
-$formSetup->newItem('TEST_MYPARAM8')->setAsProduct();
+$formSetup->newItem('ECOMMERCE_MYPARAM8')->setAsProduct();
 
 // Add a title for a new section
 $formSetup->newItem('NewSection')->setAsTitle();
@@ -153,18 +153,18 @@ $TField = array(
 );
 
 // Setup conf for a simple combo list
-$formSetup->newItem('TEST_MYPARAM9')->setAsSelect($TField);
+$formSetup->newItem('ECOMMERCE_MYPARAM9')->setAsSelect($TField);
 
 // Setup conf for a multiselect combo list
-$item = $formSetup->newItem('TEST_MYPARAM10');
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM10');
 $item->setAsMultiSelect($TField);
-$item->helpText = $langs->transnoentities('TEST_MYPARAM10');
+$item->helpText = $langs->transnoentities('ECOMMERCE_MYPARAM10');
 
 // Setup conf for a category selection
-$formSetup->newItem('TEST_CATEGORY_ID_XXX')->setAsCategory('product');
+$formSetup->newItem('ECOMMERCE_CATEGORY_ID_XXX')->setAsCategory('product');
 
-// Setup conf TEST_MYPARAM10
-$item = $formSetup->newItem('TEST_MYPARAM10');
+// Setup conf ECOMMERCE_MYPARAM10
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM10');
 $item->setAsColor();
 $item->defaultFieldValue = '#FF0000';
 //$item->fieldValue = '';
@@ -173,17 +173,17 @@ $item->defaultFieldValue = '#FF0000';
 //$item->fieldInputOverride = false; // set this var to override field input
 //$item->fieldOutputOverride = false; // set this var to override field output
 
-$item = $formSetup->newItem('TEST_MYPARAM11')->setAsHtml();
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM11')->setAsHtml();
 $item->nameText = $item->getNameText().' more html text ';
 $item->fieldInputOverride = '';
 $item->helpText = $langs->transnoentities('HelpMessage');
 $item->cssClass = 'minwidth500';
 
-$item = $formSetup->newItem('TEST_MYPARAM12');
+$item = $formSetup->newItem('ECOMMERCE_MYPARAM12');
 $item->fieldOverride = "Value forced, can't be modified";
 $item->cssClass = 'minwidth500';
 
-//$item = $formSetup->newItem('TEST_MYPARAM13')->setAsDate();	// Not yet implemented
+//$item = $formSetup->newItem('ECOMMERCE_MYPARAM13')->setAsDate();	// Not yet implemented
 
 // End of definition of parameters
 
@@ -193,7 +193,7 @@ $setupnotempty += count($formSetup->items);
 
 $dirmodels = array_merge(array('/'), (array) $conf->modules_parts['models']);
 
-$moduledir = 'test';
+$moduledir = 'ecommerce';
 $myTmpObjects = array();
 // TODO Scan list of objects to fill this array
 $myTmpObjects['myobject'] = array('label' => 'MyObject', 'includerefgeneration' => 0, 'includedocgeneration' => 0, 'class' => 'MyObject');
@@ -244,7 +244,7 @@ if ($action == 'updateMask') {
 	$className = '';
 	$dirmodels = array_merge(array('/'), (array) $conf->modules_parts['models']);
 	foreach ($dirmodels as $reldir) {
-		$file = dol_buildpath($reldir."core/modules/test/doc/pdf_".$modele."_".strtolower($tmpobjectkey).".modules.php", 0);
+		$file = dol_buildpath($reldir."core/modules/ecommerce/doc/pdf_".$modele."_".strtolower($tmpobjectkey).".modules.php", 0);
 		if (file_exists($file)) {
 			$className = "pdf_".$modele."_".strtolower($tmpobjectkey);
 			break;
@@ -260,7 +260,7 @@ if ($action == 'updateMask') {
 		'@phan-var-force ModelePDFMyObject $module';
 
 		if ($module->write_file($tmpobject, $langs) > 0) {
-			header("Location: ".DOL_URL_ROOT."/document.php?modulepart=test-".strtolower($tmpobjectkey)."&file=SPECIMEN.pdf");
+			header("Location: ".DOL_URL_ROOT."/document.php?modulepart=ecommerce-".strtolower($tmpobjectkey)."&file=SPECIMEN.pdf");
 			return;
 		} else {
 			setEventMessages($module->error, null, 'errors');
@@ -273,7 +273,7 @@ if ($action == 'updateMask') {
 } elseif ($action == 'setmod') {
 	// TODO Check if numbering module chosen can be activated by calling method canBeActivated
 	if (!empty($tmpobjectkey)) {
-		$constforval = 'TEST_'.strtoupper($tmpobjectkey)."_ADDON";
+		$constforval = 'ECOMMERCE_'.strtoupper($tmpobjectkey)."_ADDON";
 		dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity);
 	}
 } elseif ($action == 'set') {
@@ -283,7 +283,7 @@ if ($action == 'updateMask') {
 	$ret = delDocumentModel($value, $type);
 	if ($ret > 0) {
 		if (!empty($tmpobjectkey)) {
-			$constforval = 'TEST_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
+			$constforval = 'ECOMMERCE_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
 			if (getDolGlobalString($constforval) == "$value") {
 				dolibarr_del_const($db, $constforval, $conf->entity);
 			}
@@ -292,7 +292,7 @@ if ($action == 'updateMask') {
 } elseif ($action == 'setdoc') {
 	// Set or unset default model
 	if (!empty($tmpobjectkey)) {
-		$constforval = 'TEST_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
+		$constforval = 'ECOMMERCE_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
 		if (dolibarr_set_const($db, $constforval, $value, 'chaine', 0, '', $conf->entity)) {
 			// The constant that was read before the new set
 			// We therefore requires a variable to have a coherent view
@@ -307,7 +307,7 @@ if ($action == 'updateMask') {
 	}
 } elseif ($action == 'unsetdoc') {
 	if (!empty($tmpobjectkey)) {
-		$constforval = 'TEST_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
+		$constforval = 'ECOMMERCE_'.strtoupper($tmpobjectkey).'_ADDON_PDF';
 		dolibarr_del_const($db, $constforval, $conf->entity);
 	}
 }
@@ -322,9 +322,9 @@ $action = 'edit';
 $form = new Form($db);
 
 $help_url = '';
-$title = "TestSetup";
+$title = "EcommerceSetup";
 
-llxHeader('', $langs->trans($title), $help_url, '', 0, 0, '', '', '', 'mod-test page-admin');
+llxHeader('', $langs->trans($title), $help_url, '', 0, 0, '', '', '', 'mod-ecommerce page-admin');
 
 // Subheader
 $linkback = '<a href="'.($backtopage ? $backtopage : DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
@@ -332,11 +332,11 @@ $linkback = '<a href="'.($backtopage ? $backtopage : DOL_URL_ROOT.'/admin/module
 print load_fiche_titre($langs->trans($title), $linkback, 'title_setup');
 
 // Configuration header
-$head = testAdminPrepareHead();
-print dol_get_fiche_head($head, 'settings', $langs->trans($title), -1, "test@test");
+$head = ecommerceAdminPrepareHead();
+print dol_get_fiche_head($head, 'settings', $langs->trans($title), -1, "ecommerce@ecommerce");
 
 // Setup page goes here
-echo '<span class="opacitymedium">'.$langs->trans("TestSetupPage").'</span><br><br>';
+echo '<span class="opacitymedium">'.$langs->trans("EcommerceSetupPage").'</span><br><br>';
 
 
 /*if ($action == 'edit') {
@@ -419,7 +419,7 @@ foreach ($myTmpObjects as $myTmpObjectKey => $myTmpObjectArray) {
 								print '</td>'."\n";
 
 								print '<td class="center">';
-								$constforvar = 'TEST_'.strtoupper($myTmpObjectKey).'_ADDON';
+								$constforvar = 'ECOMMERCE_'.strtoupper($myTmpObjectKey).'_ADDON';
 								if (getDolGlobalString($constforvar) == $file) {
 									print img_picto($langs->trans("Activated"), 'switch_on');
 								} else {
@@ -565,7 +565,7 @@ foreach ($myTmpObjects as $myTmpObjectKey => $myTmpObjectArray) {
 
 										// Default
 										print '<td class="center">';
-										$constforvar = 'TEST_'.strtoupper($myTmpObjectKey).'_ADDON_PDF';
+										$constforvar = 'ECOMMERCE_'.strtoupper($myTmpObjectKey).'_ADDON_PDF';
 										if (getDolGlobalString($constforvar) == $name) {
 											//print img_picto($langs->trans("Default"), 'on');
 											// Even if choice is the default value, we allow to disable it. Replace this with previous line if you need to disable unset

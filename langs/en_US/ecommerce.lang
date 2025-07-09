@@ -1,0 +1,42 @@
+# Translation file
+
+#
+# Generic
+#
+
+# Module label 'ModuleEcommerceName'
+ModuleEcommerceName = Ecommerce
+# Module description 'ModuleEcommerceDesc'
+ModuleEcommerceDesc = Ecommerce description
+
+#
+# Admin page
+#
+EcommerceSetup = Ecommerce setup
+Settings = Settings
+EcommerceSetupPage = Ecommerce setup page
+NewSection=New section
+ECOMMERCE_MYPARAM1 = My param 1
+ECOMMERCE_MYPARAM1Tooltip = My param 1 tooltip
+ECOMMERCE_MYPARAM2=My param 2
+ECOMMERCE_MYPARAM2Tooltip=My param 2 tooltip
+
+
+#
+# About page
+#
+About = About
+EcommerceAbout = About Ecommerce
+EcommerceAboutPage = Ecommerce about page
+
+#
+# Sample page
+#
+EcommerceArea = Home Ecommerce
+MyPageName = My page name
+
+#
+# Sample widget
+#
+MyWidget = My widget
+MyWidgetDescription = My widget description
