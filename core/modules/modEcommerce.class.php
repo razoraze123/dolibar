@@ -22,7 +22,7 @@
  * 	\defgroup   ecommerce     Module Ecommerce
  *  \brief      Ecommerce module descriptor.
  *
- *  \file       htdocs/ecommerce/core/modules/modScrapBoost.class.php
+ *  \file       htdocs/ecommerce/core/modules/modEcommerce.class.php
  *  \ingroup    ecommerce
  *  \brief      Description and activation file for module Ecommerce
  */
@@ -32,7 +32,7 @@ include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
 /**
  *  Description and activation class for module Ecommerce
  */
-class modScrapBoost extends DolibarrModules
+class modEcommerce extends DolibarrModules
 {
 	/**
 	 * Constructor. Define names, constants, directories, boxes, permissions
@@ -62,7 +62,7 @@ class modScrapBoost extends DolibarrModules
 		// Gives the possibility for the module, to provide his own family info and position of this family (Overwrite $this->family and $this->module_position. Avoid this)
 		//$this->familyinfo = array('myownfamily' => array('position' => '01', 'label' => $langs->trans("MyOwnFamily")));
 		// Module label (no space allowed), used if translation string 'ModuleEcommerceName' not found (Ecommerce is name of module).
-		$this->name = preg_replace('/^mod/i', '', get_class($this));
+                $this->name = 'ecommerce';
 
 		// DESCRIPTION_FLAG
 		// Module description, used if translation string 'ModuleEcommerceDesc' not found (Ecommerce is name of module).
