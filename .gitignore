@@ -1,0 +1,8 @@
+# Ignorer les fichiers temporaires et backups
+*.log
+*.bak
+*.tmp
+.DS_Store
+
+# Ignorer les fichiers générés par Dolibarr
+documents/
